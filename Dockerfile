@@ -1,4 +1,4 @@
-FROM python:3.8-slim as base
+FROM python:3.9-slim as base
 
 # libpq-dev and python3-dev help with psycopg2
 RUN apt-get update \
@@ -14,7 +14,7 @@ RUN apt-get update \
 WORKDIR /opt/webapp
 COPY Pipfile* /opt/webapp/
 
-RUN pip3 install --no-cache-dir -q 'pipenv==2018.11.26' 
+RUN pip3 install --no-cache-dir -q 'pipenv==2022.1.8' 
 RUN pipenv install --deploy --system
 COPY . /opt/webapp
 
